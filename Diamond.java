@@ -15,6 +15,7 @@ public class Diamond {
     else{
       case_odd(num_given);
     }
+    scan.close();
   }
 
 
