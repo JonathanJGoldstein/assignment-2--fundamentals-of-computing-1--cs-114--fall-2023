@@ -25,15 +25,15 @@ public class Diamond {
     int Height = I;
     Print_Tip_Diamong(Width);
     for (int Iteration = 1; Iteration < (int)(Height/2) + 1; Iteration++){
-      Print_Block_Space((Width/2) - (2 * Iteration) + 1);
+      Print_Block_Space((Width/2) - (Iteration));
       Odd_Print_Scan_Diamond(Iteration);
-      Print_Block_Space((Width/2) - (2 * Iteration) + 1);
+      Print_Block_Space((Width/2) - (Iteration));
       System.out.print("\n");
     }
     for (int Iteration = (int)(Height/2)-1; Iteration > 0; Iteration--){
-      Print_Block_Space((Width/2) - (2 * Iteration) + 1);
+      Print_Block_Space((Width/2) - (Iteration));
       Odd_Print_Scan_Diamond(Iteration);
-      Print_Block_Space((Width/2) - (2 * Iteration) + 1);
+      Print_Block_Space((Width/2) - (Iteration));
       System.out.print("\n");
     }
     Print_Tip_Diamong(Width);
