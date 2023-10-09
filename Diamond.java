@@ -3,6 +3,7 @@ import java.util.Scanner;
 import org.w3c.dom.events.Event;
 public class Diamond {
   public static void main(String[] args) {
+    //Initialize variables
     Scanner scan = new Scanner(System.in);
     int num_given = 0;
 
@@ -105,7 +106,7 @@ public class Diamond {
   }
 
   static void Odd_Print_Scanline_Diamond(int Iteration){
-    //print "* " the amount of times required for the current scanline based off of an odd amount of chars
+    //print "*" the amount of times required for the current scanline based off of an odd amount of chars
     //the +1 is to account for the fact that the input given is odd, therefore an extra asterisk is needed
     //to account for the series having one extra character per line
     for(int i = 0; i < 2*Iteration + 1; i++){
