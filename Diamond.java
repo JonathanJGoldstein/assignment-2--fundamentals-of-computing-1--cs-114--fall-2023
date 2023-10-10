@@ -1,22 +1,22 @@
 import java.util.Scanner;
 
-import org.w3c.dom.events.Event;
+//import org.w3c.dom.events.Event;
 public class Diamond {
   public static void main(String[] args) {
     //Initialize variables
     Scanner scan = new Scanner(System.in);
-    int num_given = 0;
+    int numGiven = 0;
 
     System.out.print("Enter input value:\n");
-    num_given = scan.nextInt();
+    numGiven = scan.nextInt();
 
     System.out.print("\n");
 
-    if (num_given % 2 == 0){
-      case_even(num_given);
+    if (numGiven % 2 == 0){
+      caseEven(numGiven);
     }
     else{
-      case_odd(num_given);
+      caseOdd(numGiven);
     }
 
     scan.close();
@@ -24,72 +24,72 @@ public class Diamond {
 
 
 
-  static void case_odd(int I){
+  static void caseOdd(int input){
     //width and height of the the rhombus
-    int width = I;
-    int height = I;
+    int width = input;
+    int height = input;
 
     //print the top tip of the rhombus
-    Print_Tip_Diamond(width);
+    printTipDiamond(width);
 
     //print the upper half and middle of the rhombus
-    for (int Iteration = 1; Iteration < (int)(height/2) + 1; Iteration++){
-      Print_Block_Space((width/2) - (Iteration));
-      Odd_Print_Scanline_Diamond(Iteration);
+    for (int i = 1; i < (int)(height/2) + 1; i++){
+      printBlockSpace((width/2) - (i));
+      oddPrintScanlineDiamond(i);
       System.out.print("\n");
     }
 
     //print the lower half of the rhombus
-    for (int Iteration = (int)(height/2)-1; Iteration > 0; Iteration--){
-      Print_Block_Space((width/2) - (Iteration));
-      Odd_Print_Scanline_Diamond(Iteration);
+    for (int i = (int)(height/2)-1; i > 0; i--){
+      printBlockSpace((width/2) - (i));
+      oddPrintScanlineDiamond(i);
       System.out.print("\n");
     }
 
     //print the bottom tip of the rhombus
-    Print_Tip_Diamond(width);
+    printTipDiamond(width);
   }
 
-  static void case_even(int I){
-    //width and height of the the rhombus
-    int width = (2 * I) - 1;
-    int height = I + 1;
+  static void caseEven(int input){
+    //width and height of the the rhombus input chars (Including spaces)
+    int width = (2 * input) - 1;
+    int height = input + 1;
 
     //print the top tip of the rhombus
-    Print_Tip_Diamond(width);
+    printTipDiamond(width);
 
     //print the upper half and middle of the rhombus
-    for (int Iteration = 1; Iteration < (int)(height/2) + 1; Iteration++){
-      Print_Block_Space((width/2) - (2 * Iteration) + 1);
-      Even_Print_Scan_Diamond(Iteration);
+    for (int i = 1; i < (int)(height/2) + 1; i++){
+      printBlockSpace((width/2) - (2 * i) + 1);
+      evenPrintScanDiamond(i);
       System.out.print("\n");
     }
 
     //print the lower half of the rhombus
-    for (int Iteration = (int)(height/2)-1; Iteration > 0; Iteration--){
-      Print_Block_Space((width/2) - (2 * Iteration) + 1);
-      Even_Print_Scan_Diamond(Iteration);
+    for (int i = (int)(height/2)-1; i > 0; i--){
+      printBlockSpace((width/2) - (2 * i) + 1);
+      evenPrintScanDiamond(i);
       System.out.print("\n");
     }
 
     //print the bottom tip of the rhombus
-    Print_Tip_Diamond(width);
+    printTipDiamond(width);
   }
 
-  static void Print_Tip_Diamond(int width){
+  static void printTipDiamond(int width){
 
     //set half of the scanline to spaces
-    Print_Block_Space((int)(width/2));
+    printBlockSpace((int)(width/2));
 
-    //print the tip char in the middle most char space
+    //print the tip char input the middle most char space
     System.out.print("*");
 
     //set the other half of the line to spaces
-    Print_Block_Space((int)(width/2));
+    printBlockSpace((int)(width/2));
     System.out.print("\n");
   }
 
-  static void Print_Block_Space(int count){
+  static void printBlockSpace(int count){
     //loop through the amount of spaces required to be printed
     for (int i = 0; i < count; i++){
     System.out.print(" ");
@@ -97,19 +97,19 @@ public class Diamond {
     return;
   }
 
-  static void Even_Print_Scan_Diamond(int Iteration){
+  static void evenPrintScanDiamond(int count){
     //print "* " the amount of times required for the current scanline based off of an even amount of chars
-    for(int i = 0; i < 2*Iteration; i++){
+    for(int i = 0; i < 2*count; i++){
       System.out.print("* ");
     }
     return;
   }
 
-  static void Odd_Print_Scanline_Diamond(int Iteration){
+  static void oddPrintScanlineDiamond(int count){
     //print "*" the amount of times required for the current scanline based off of an odd amount of chars
     //the +1 is to account for the fact that the input given is odd, therefore an extra asterisk is needed
     //to account for the series having one extra character per line
-    for(int i = 0; i < 2*Iteration + 1; i++){
+    for(int i = 0; i < 2*count + 1; i++){
       System.out.print("*");
     }
   }
