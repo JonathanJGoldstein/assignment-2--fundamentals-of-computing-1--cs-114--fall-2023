@@ -12,18 +12,16 @@ public class Diamond {
     System.out.print("\n");
 
     if (numGiven % 2 == 0){
-      caseEven(numGiven);
+      printEvenCase(numGiven);
     }
     else{
-      caseOdd(numGiven);
+      printOddCase(numGiven);
     }
 
     scan.close();
   }
 
-
-
-  static void caseOdd(int input){
+  static void printOddCase(int input){
     //width and height of the the rhombus
     int width = input;
     int height = input;
@@ -34,22 +32,24 @@ public class Diamond {
     //print the upper half and middle of the rhombus
     for (int i = 1; i < (int)(height/2) + 1; i++){
       printBlockSpace((width/2) - (i));
-      oddPrintScanlineDiamond(i);
+      printOddScanlineDiamond(i);
       System.out.print("\n");
     }
 
     //print the lower half of the rhombus
     for (int i = (int)(height/2)-1; i > 0; i--){
       printBlockSpace((width/2) - (i));
-      oddPrintScanlineDiamond(i);
+      printOddScanlineDiamond(i);
       System.out.print("\n");
     }
 
     //print the bottom tip of the rhombus
     printTopBottomTipDiamond(width);
+
+    return;
   }
 
-  static void caseEven(int input){
+  static void printEvenCase(int input){
     //width and height of the the rhombus input chars (Including spaces)
     int width = (2 * input) - 1;
     int height = input + 1;
@@ -60,19 +60,21 @@ public class Diamond {
     //print the upper half and middle of the rhombus
     for (int i = 1; i < (int)(height/2) + 1; i++){
       printBlockSpace((width/2) - (2 * i) + 1);
-      evenPrintScanDiamond(i);
+      printEvenScanlineDiamond(i);
       System.out.print("\n");
     }
 
     //print the lower half of the rhombus
     for (int i = (int)(height/2)-1; i > 0; i--){
       printBlockSpace((width/2) - (2 * i) + 1);
-      evenPrintScanDiamond(i);
+      printEvenScanlineDiamond(i);
       System.out.print("\n");
     }
 
     //print the bottom tip of the rhombus
     printTopBottomTipDiamond(width);
+
+    return;
   }
 
   static void printTopBottomTipDiamond(int width){
@@ -86,6 +88,8 @@ public class Diamond {
     //set the other half of the line to spaces
     printBlockSpace((int)(width/2));
     System.out.print("\n");
+
+    return;
   }
 
   static void printBlockSpace(int count){
@@ -96,20 +100,23 @@ public class Diamond {
     return;
   }
 
-  static void evenPrintScanDiamond(int count){
+  static void printEvenScanlineDiamond(int count){
     //print "* " the amount of times required for the current scanline based off of an even amount of chars
     for(int i = 0; i < 2*count; i++){
       System.out.print("* ");
     }
+
     return;
   }
 
-  static void oddPrintScanlineDiamond(int count){
+  static void printOddScanlineDiamond(int count){
     //print "*" the amount of times required for the current scanline based off of an odd amount of chars
     //the +1 is to account for the fact that the input given is odd, therefore an extra asterisk is needed
     //to account for the series having one extra character per line
     for(int i = 0; i < 2*count + 1; i++){
       System.out.print("*");
     }
+
+    return;
   }
 }
