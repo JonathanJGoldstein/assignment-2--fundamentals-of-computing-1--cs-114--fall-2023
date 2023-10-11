@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-//import org.w3c.dom.events.Event;
 public class Diamond {
   public static void main(String[] args) {
     //Initialize variables
@@ -30,7 +29,7 @@ public class Diamond {
     int height = input;
 
     //print the top tip of the rhombus
-    printTipDiamond(width);
+    printTopBottomTipDiamond(width);
 
     //print the upper half and middle of the rhombus
     for (int i = 1; i < (int)(height/2) + 1; i++){
@@ -47,7 +46,7 @@ public class Diamond {
     }
 
     //print the bottom tip of the rhombus
-    printTipDiamond(width);
+    printTopBottomTipDiamond(width);
   }
 
   static void caseEven(int input){
@@ -56,7 +55,7 @@ public class Diamond {
     int height = input + 1;
 
     //print the top tip of the rhombus
-    printTipDiamond(width);
+    printTopBottomTipDiamond(width);
 
     //print the upper half and middle of the rhombus
     for (int i = 1; i < (int)(height/2) + 1; i++){
@@ -73,10 +72,10 @@ public class Diamond {
     }
 
     //print the bottom tip of the rhombus
-    printTipDiamond(width);
+    printTopBottomTipDiamond(width);
   }
 
-  static void printTipDiamond(int width){
+  static void printTopBottomTipDiamond(int width){
 
     //set half of the scanline to spaces
     printBlockSpace((int)(width/2));
